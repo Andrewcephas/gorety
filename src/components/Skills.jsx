@@ -66,54 +66,32 @@ const Skills = () => {
           <div className="title-underline"></div>
         </div>
 
-        <div className="skills-content">
-          <div className="skills-photo-wrapper">
-            <div className="photo-frame">
-              <img 
-                src="../images/TIM_0687.jpg" 
-                alt="Gorety - Skills" 
-                className="section-photo"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = '../images/riyan1.jpeg';
-                }}
-              />
-              <div className="photo-shine"></div>
-              <div className="photo-glow"></div>
-            </div>
-            <div className="photo-hearts">
-              <span className="fh fh1">♥</span>
-              <span className="fh fh2">♥</span>
-            </div>
-          </div>
-
-          <div className="skills-grid">
-            {skillCategories.map((category, index) => (
-              <div 
-                key={index} 
-                className={`skill-card skill-${category.color}`}
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                <div className="card-icon">
-                  <span>{category.icon}</span>
-                  <div className="icon-glow"></div>
-                </div>
-                
-                <h3 className="card-title">{category.title}</h3>
-                
-                <ul className="skills-list">
-                  {category.skills.map((skill, skillIndex) => (
-                    <li key={skillIndex} className="skill-item">
-                      <span className="skill-check">✦</span>
-                      <span>{skill}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="card-decoration-circle"></div>
+        <div className="skills-grid">
+          {skillCategories.map((category, index) => (
+            <div 
+              key={index} 
+              className={`skill-card skill-${category.color}`}
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+              <div className="card-icon">
+                <span>{category.icon}</span>
+                <div className="icon-glow"></div>
               </div>
-            ))}
-          </div>
+              
+              <h3 className="card-title">{category.title}</h3>
+              
+              <ul className="skills-list">
+                {category.skills.map((skill, skillIndex) => (
+                  <li key={skillIndex} className="skill-item">
+                    <span className="skill-check">✦</span>
+                    <span>{skill}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="card-decoration-circle"></div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

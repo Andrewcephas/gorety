@@ -90,12 +90,12 @@ const Hero = () => {
             <div className="profile-glow"></div>
             <div className="profile-frame">
               <img 
-                src="../images/TIM_3866.jpeg" 
+                src="/images/TIM_3866.jpeg" 
                 alt="Gorety Adhiambo Ogutu" 
                 className="profile-photo"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = '../images/ROYAL_G_CUT.jpg';
+                  e.target.src = '/images/ROYAL_G_CUT.jpg';
                 }}
               />
               <div className="profile-shine"></div>

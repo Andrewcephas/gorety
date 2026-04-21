@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
+import ImageGallery from './components/ImageGallery'
 import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -21,6 +22,7 @@ function App() {
         <About />
         <Skills />
         <Experience />
+        <ImageGallery />
         <Education />
         <Contact />
         <Footer />

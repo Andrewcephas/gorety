@@ -79,71 +79,45 @@ const Experience = () => {
           <div className="title-underline"></div>
         </div>
 
-        <div className="experience-content">
-          <div className="experience-photo-wrapper">
-            <div className="photo-frame">
-              <img 
-                src="../images/riyan2.jpeg" 
-                alt="Gorety - Experience" 
-                className="section-photo"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = '../images/riyan3.jpeg';
-                }}
-              />
-              <div className="photo-shine"></div>
-              <div className="photo-glow"></div>
-            </div>
-            <div className="photo-hearts">
-              <span className="fh fh1">♥</span>
-              <span className="fh fh2">♥</span>
-            </div>
-          </div>
-
-          <div className="experience-grid">
-            {experiences.map((exp, index) => (
-              <div 
-                key={index} 
-                className={`experience-card card-${exp.color}`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="card-number">0{index + 1}</div>
-                
-                <div className="exp-icon-wrapper">
-                  {exp.id === 'class-rep' ? (
-                    <img 
-                      src="../images/TIM_0687.jpg" 
-                      alt={exp.title} 
-                      className="exp-photo"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = '../images/tim_0687.jpg';
-                      }}
-                    />
-                  ) : (
-                    <span className="exp-icon">{exp.icon}</span>
-                  )}
-                  <div className="icon-pulse"></div>
-                </div>
-
-                <div className="exp-content">
-                  <h3 className="exp-title">{exp.title}</h3>
-                  <p className="exp-organization">{exp.organization}</p>
-
-                  <ul className="exp-points">
-                    {exp.points.map((point, pointIndex) => (
-                      <li key={pointIndex} className="exp-point">
-                        <span className="point-bullet">✦</span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="card-shine"></div>
+        <div className="experience-grid">
+          {experiences.map((exp, index) => (
+            <div 
+              key={index} 
+              className={`experience-card card-${exp.color}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="card-number">0{index + 1}</div>
+              
+              <div className="exp-icon-wrapper">
+                {exp.id === 'class-rep' ? (
+                  <img 
+                    src="/images/TIM_0687.jpg" 
+                    alt={exp.title} 
+                    className="exp-photo"
+                  />
+                ) : (
+                  <span className="exp-icon">{exp.icon}</span>
+                )}
+                <div className="icon-pulse"></div>
               </div>
-            ))}
-          </div>
+
+              <div className="exp-content">
+                <h3 className="exp-title">{exp.title}</h3>
+                <p className="exp-organization">{exp.organization}</p>
+
+                <ul className="exp-points">
+                  {exp.points.map((point, pointIndex) => (
+                    <li key={pointIndex} className="exp-point">
+                      <span className="point-bullet">✦</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="card-shine"></div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

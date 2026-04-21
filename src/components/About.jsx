@@ -34,6 +34,9 @@ const About = () => {
 
         <div className="about-content">
           <div className="about-card">
+            <div className="card-decoration top-left">♥</div>
+            <div className="card-decoration bottom-right">♥</div>
+            
             <p className="about-text animate-text">
               A committed and ethically grounded Counseling Psychology student 
               currently pursuing a Bachelor's degree, with a strong interest in 
@@ -56,27 +59,6 @@ const About = () => {
                 <span className="highlight-icon">🤝</span>
                 <span>Community Focus</span>
               </div>
-            </div>
-          </div>
-
-          <div className="about-photo-wrapper">
-            <div className="photo-frame">
-              <img 
-                src="../images/ROYAL_G_CUT.jpg" 
-                alt="Gorety - Royal G Cut" 
-                className="section-photo"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = '../images/TIM_0687.jpg';
-                }}
-              />
-              <div className="photo-shine"></div>
-              <div className="photo-glow"></div>
-            </div>
-            <div className="photo-hearts">
-              <span className="fh fh1">♥</span>
-              <span className="fh fh2">♥</span>
-              <span className="fh fh3">♥</span>
             </div>
           </div>
         </div>
