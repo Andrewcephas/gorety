@@ -1,0 +1,188 @@
+.skills-section {
+  padding: 6rem 0;
+  background: var(--white);
+  position: relative;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-gradient);
+  transition: height 0.3s ease;
+}
+
+.skill-card:hover::before {
+  height: 6px;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Maroon color variations */
+.skill-maroon1 {
+  --card-gradient: linear-gradient(90deg, var(--primary-maroon), var(--dark-maroon));
+  border-color: rgba(139, 69, 87, 0.2);
+}
+
+.skill-maroon1:hover {
+  border-color: var(--primary-maroon);
+}
+
+.skill-maroon2 {
+  --card-gradient: linear-gradient(90deg, var(--dark-maroon), var(--darker-maroon));
+  border-color: rgba(109, 44, 61, 0.2);
+}
+
+.skill-maroon2:hover {
+  border-color: var(--dark-maroon);
+}
+
+.skill-maroon3 {
+  --card-gradient: linear-gradient(90deg, var(--light-maroon), var(--primary-maroon));
+  border-color: rgba(168, 92, 111, 0.2);
+}
+
+.skill-maroon3:hover {
+  border-color: var(--light-maroon);
+}
+
+.card-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.skill-maroon1 .card-icon {
+  background: var(--white);
+  border: 2px solid var(--primary-maroon);
+  box-shadow: 0 8px 25px rgba(139, 69, 87, 0.15);
+}
+
+.skill-maroon2 .card-icon {
+  background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+  border: 2px solid var(--dark-maroon);
+  box-shadow: 0 8px 25px rgba(109, 44, 61, 0.15);
+}
+
+.skill-maroon3 .card-icon {
+  background: linear-gradient(135deg, var(--off-white) 0%, var(--light-gray) 100%);
+  border: 2px solid var(--light-maroon);
+  box-shadow: 0 8px 25px rgba(168, 92, 111, 0.2);
+}
+
+.icon-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--primary-maroon);
+  opacity: 0.1;
+  filter: blur(15px);
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.skill-card:hover .icon-glow {
+  opacity: 0.3;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  color: var(--dark-maroon);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.skills-list {
+  list-style: none;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(139, 69, 87, 0.1);
+  color: var(--text-medium);
+  transition: var(--transition-smooth);
+}
+
+.skill-item:last-child {
+  border-bottom: none;
+}
+
+.skill-item:hover {
+  color: var(--dark-maroon);
+  padding-left: 0.5rem;
+}
+
+.skill-check {
+  color: var(--primary-maroon);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.card-decoration-circle {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 69, 87, 0.06) 0%, transparent 70%);
+  bottom: -50px;
+  right: -50px;
+  transition: var(--transition-smooth);
+}
+
+.skill-card:hover .card-decoration-circle {
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 4rem 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .skill-card {
+    padding: 2rem 1.5rem;
+  }
+}

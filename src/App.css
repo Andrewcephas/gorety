@@ -1,0 +1,40 @@
+/* Global app wrapper */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Smooth scroll padding for fixed header */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--primary-maroon);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Utility class for hide-visually (screen readers) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Maroon shadows */
+.sweet-shadow {
+  box-shadow: 0 8px 30px rgba(139, 69, 87, 0.12);
+}
+
+.sweet-shadow-hover {
+  box-shadow: 0 15px 40px rgba(139, 69, 87, 0.2);
+}

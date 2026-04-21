@@ -1,0 +1,115 @@
+import { useEffect, useRef } from 'react'
+import './Experience.css'
+
+const Experience = () => {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
+  const experiences = [
+    {
+      icon: '🎓',
+      title: 'Committee Head – Christian Union (CU)',
+      organization: 'Kisii University',
+      color: 'purple',
+      points: [
+        'Leadership and coordination of student activities',
+        'Organized programs promoting well-being'
+      ]
+    },
+    {
+      icon: '🏫',
+      title: 'Class Representative',
+      organization: 'Oyugi Ogango Girls High School',
+      color: 'maroon',
+      points: [
+        'Represented students',
+        'Assisted in conflict resolution'
+      ]
+    },
+    {
+      icon: '🎥',
+      title: 'Content Creator',
+      organization: 'CatechLifestyle (YouTube)',
+      color: 'pink',
+      points: [
+        'Created lifestyle and personal development content',
+        'Built audience engagement'
+      ]
+    },
+    {
+      icon: '🎨',
+      title: 'Independent Graphic Designer',
+      organization: 'Freelance',
+      color: 'lavender',
+      points: [
+        'Designed visual content',
+        'Developed branding and communication materials'
+      ]
+    }
+  ]
+
+  return (
+    <section id="experience" className="experience-section" ref={sectionRef}>
+      <div className="container">
+        <div className="section-header">
+          <span className="section-tag">My Journey</span>
+          <h2 className="section-title">Experience & Leadership</h2>
+          <div className="title-underline"></div>
+        </div>
+
+        <div className="experience-grid">
+          {experiences.map((exp, index) => (
+            <div 
+              key={index} 
+              className={`experience-card card-${exp.color}`}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="card-number">0{index + 1}</div>
+              
+              <div className="exp-icon-wrapper">
+                <span className="exp-icon">{exp.icon}</span>
+                <div className="icon-pulse"></div>
+              </div>
+
+              <div className="exp-content">
+                <h3 className="exp-title">{exp.title}</h3>
+                <p className="exp-organization">{exp.organization}</p>
+
+                <ul className="exp-points">
+                  {exp.points.map((point, pointIndex) => (
+                    <li key={pointIndex} className="exp-point">
+                      <span className="point-bullet">✦</span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="card-shine"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Experience
