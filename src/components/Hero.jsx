@@ -90,15 +90,15 @@ const Hero = () => {
             <div className="profile-glow"></div>
             <div className="profile-frame">
               <img 
-                src="../images/profile.jpg" 
+                src="../images/TIM_3866.jpeg" 
                 alt="Gorety Adhiambo Ogutu" 
                 className="profile-photo"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.parentElement.innerHTML = '<div class="profile-initials"><span>G</span><span class="heart-decoration">♥</span><span>O</span></div>';
+                  e.target.src = '../images/ROYAL_G_CUT.jpg';
                 }}
               />
-              <div className="profile-ring"></div>
+              <div className="profile-shine"></div>
             </div>
             <div className="floating-hearts">
               <span className="heart h1">♥</span>

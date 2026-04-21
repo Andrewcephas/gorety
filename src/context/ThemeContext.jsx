@@ -22,15 +22,22 @@ export const ThemeProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('gorety-theme', currentTheme)
     
-    // Update CSS variables
     const root = document.documentElement
-    Object.entries(theme).forEach(([key, value]) => {
-      const cssVar = `--${key}`
-      // Only set CSS variables that are color values
-      if (typeof value === 'string' && value.startsWith('#')) {
-        root.style.setProperty(cssVar, value)
-      }
-    })
+    root.classList.add('theme-transitioning')
+    
+    root.style.setProperty('--primary-maroon', theme.primary)
+    root.style.setProperty('--dark-maroon', theme.dark)
+    root.style.setProperty('--light-maroon', theme.light)
+    root.style.setProperty('--darker-maroon', theme.dark)
+    root.style.setProperty('--white', theme.white)
+    root.style.setProperty('--off-white', theme.offWhite)
+    root.style.setProperty('--light-gray', theme.lightGray)
+    root.style.setProperty('--text-dark', theme.textDark)
+    root.style.setProperty('--text-medium', theme.textMedium)
+    
+    setTimeout(() => {
+      root.classList.remove('theme-transitioning')
+    }, 600)
   }, [currentTheme, theme])
 
   const switchTheme = (themeName) => {

@@ -10,7 +10,6 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import AnimatedBackground from './components/AnimatedBackground'
 import ThemeSwitcher from './components/ThemeSwitcher'
-import ImageGallery from './components/ImageGallery'
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         <About />
         <Skills />
         <Experience />
-        <ImageGallery />
         <Education />
         <Contact />
         <Footer />

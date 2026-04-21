@@ -25,21 +25,21 @@ const Education = () => {
 
   const education = [
     {
-      year: '2025 – Present',
+      year: '2025 - 2029',
       degree: 'Bachelor of Counseling Psychology',
       institution: 'Kisii University',
       status: 'Ongoing',
       color: 'maroon1'
     },
     {
-      year: '',
+      year: '2021 - 2024',
       degree: 'Kenya Certificate of Secondary Education (KCSE)',
       institution: 'Oyugi Ogango Girls Secondary School',
       status: null,
       color: 'maroon2'
     },
     {
-      year: '',
+      year: '2012 - 2020',
       degree: 'Kenya Certificate of Primary Education (KCPE)',
       institution: 'Ngeri Primary School',
       status: null,
