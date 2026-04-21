@@ -5,16 +5,16 @@ const ImageGallery = () => {
   const [images, setImages] = useState([])
 
   useEffect(() => {
-    // Define your images here since we can't read filesystem from browser
+    // Use web-safe filenames for the images
     const imageList = [
       { id: 1, name: 'Profile', url: '../images/profile.jpg', type: 'profile' },
-      { id: 2, name: 'Royal G', url: '../images/ROYAL_G_CUT.jpg', type: 'gallery' },
+      { id: 2, name: 'Royal G Cut', url: '../images/ROYAL_G_CUT.jpg', type: 'gallery' },
       { id: 3, name: 'TIM 0687', url: '../images/TIM_0687.jpg', type: 'gallery' },
-      { id: 4, name: 'TIM 3866', url: '../images/TIM_3866.jpg', type: 'gallery' },
-      { id: 5, name: 'Riyan 1', url: '../images/Riyan_1.jpg', type: 'gallery' },
-      { id: 6, name: 'Riyan 2', url: '../images/Riyan_2.jpg', type: 'gallery' },
-      { id: 7, name: 'Riyan 3', url: '../images/Riyan_3.jpg', type: 'gallery' },
-      { id: 8, name: 'Riyan 4', url: '../images/Riyan_4.jpg', type: 'gallery' }
+      { id: 4, name: 'TIM 3866', url: '../images/tim_3866.jpeg', type: 'gallery' },
+      { id: 5, name: 'Riyan Photo 1', url: '../images/riyan1.jpeg', type: 'gallery' },
+      { id: 6, name: 'Riyan Photo 2', url: '../images/riyan2.jpeg', type: 'gallery' },
+      { id: 7, name: 'Riyan Photo 3', url: '../images/riyan3.jpeg', type: 'gallery' },
+      { id: 8, name: 'Riyan Photo 4', url: '../images/riyan4.jpeg', type: 'gallery' }
     ]
     setImages(imageList)
   }, [])
@@ -44,7 +44,7 @@ const ImageGallery = () => {
                   className="gallery-image"
                   loading="lazy"
                   onError={(e) => {
-                    e.target.style.display = 'none'
+                    e.target.onerror = null;
                     e.target.parentElement.innerHTML = `
                       <div class="image-error">
                         <span class="error-icon">📷</span>
@@ -66,4 +66,5 @@ const ImageGallery = () => {
 }
 
 export default ImageGallery
+
 
