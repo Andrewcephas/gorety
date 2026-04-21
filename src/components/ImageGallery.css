@@ -15,23 +15,20 @@
   position: relative;
   width: 100%;
   height: 500px;
-  animation: cluster-cycle 12s ease-in-out infinite;
+  animation: cluster-pulse 8s ease-in-out infinite;
 }
 
-@keyframes cluster-cycle {
+@keyframes cluster-pulse {
   0%, 100% {
     transform: scale(1);
   }
-  10% {
-    transform: scale(0.7);
+  8% {
+    transform: scale(0.75);
   }
-  20% {
-    transform: scale(0.7);
-  }
-  30% {
+  16% {
     transform: scale(1);
   }
-  90% {
+  92% {
     transform: scale(1);
   }
 }
@@ -44,7 +41,8 @@
   overflow: hidden;
   box-shadow: var(--shadow-soft);
   border: 3px solid var(--primary-maroon);
-  animation: photo-float 8s ease-in-out infinite;
+  animation: photo-rotate 8s ease-in-out infinite;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
 .gallery-photo:nth-child(1) {
@@ -52,67 +50,69 @@
   left: 50%;
   transform: translate(-50%, -50%) rotate(-8deg);
   animation-delay: 0s;
-  z-index: 7;
+  z-index: 6;
 }
 
 .gallery-photo:nth-child(2) {
   top: 45%;
   left: 35%;
   transform: translate(-50%, -50%) rotate(-5deg);
-  animation-delay: 0.5s;
-  z-index: 6;
+  animation-delay: 0s;
+  z-index: 5;
 }
 
 .gallery-photo:nth-child(3) {
   top: 48%;
   left: 65%;
   transform: translate(-50%, -50%) rotate(6deg);
-  animation-delay: 1s;
-  z-index: 5;
+  animation-delay: 0s;
+  z-index: 4;
 }
 
 .gallery-photo:nth-child(4) {
   top: 30%;
   left: 40%;
   transform: translate(-50%, -50%) rotate(-10deg);
-  animation-delay: 1.5s;
-  z-index: 4;
+  animation-delay: 0s;
+  z-index: 3;
 }
 
 .gallery-photo:nth-child(5) {
   top: 32%;
   left: 60%;
   transform: translate(-50%, -50%) rotate(8deg);
-  animation-delay: 2s;
-  z-index: 3;
+  animation-delay: 0s;
+  z-index: 2;
 }
 
 .gallery-photo:nth-child(6) {
   top: 65%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-3deg);
-  animation-delay: 2.5s;
+  animation-delay: 0s;
   z-index: 1;
 }
 
-@keyframes photo-float {
-  0%, 10%, 90%, 100% {
-    transform: translate(-50%, -50%) scale(1);
+@keyframes photo-rotate {
+  0%, 10%, 18%, 92%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(var(--base-rotate, -5deg));
   }
-  20%, 80% {
-    transform: translate(-50%, -50%) scale(0.85) translateX(var(--float-x, 0)) translateY(var(--float-y, 0));
+  12%, 88% {
+    transform: translate(-50%, -50%) scale(1.15) rotate(0deg);
+    z-index: 15 !important;
+    box-shadow: var(--shadow-hover);
   }
-  30%, 70% {
-    transform: translate(-50%, -50%) scale(1.05) translateX(var(--float-x, 0)) translateY(var(--float-y, 0));
+  14%, 86% {
+    transform: translate(-50%, -50%) scale(1.1) rotate(0deg);
   }
 }
 
-.gallery-photo:nth-child(1) { --float-x: 0px; --float-y: 0px; }
-.gallery-photo:nth-child(2) { --float-x: 15px; --float-y: -10px; }
-.gallery-photo:nth-child(3) { --float-x: -15px; --float-y: -8px; }
-.gallery-photo:nth-child(4) { --float-x: 10px; --float-y: 12px; }
-.gallery-photo:nth-child(5) { --float-x: -10px; --float-y: 15px; }
-.gallery-photo:nth-child(6) { --float-x: 5px; --float-y: -12px; }
+.gallery-photo:nth-child(1) { --base-rotate: -8deg; }
+.gallery-photo:nth-child(2) { --base-rotate: -5deg; }
+.gallery-photo:nth-child(3) { --base-rotate: 6deg; }
+.gallery-photo:nth-child(4) { --base-rotate: -10deg; }
+.gallery-photo:nth-child(5) { --base-rotate: 8deg; }
+.gallery-photo:nth-child(6) { --base-rotate: -3deg; }
 
 .gallery-image {
   width: 100%;
@@ -122,9 +122,18 @@
 }
 
 .gallery-photo:hover {
-  transform: translate(-50%, -50%) scale(1.1) rotate(0deg) !important;
-  z-index: 20;
+  transform: translate(-50%, -50%) scale(1.15) rotate(0deg) !important;
+  z-index: 20 !important;
   box-shadow: var(--shadow-hover);
+}
+
+@keyframes float-drift {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-8px);
+  }
 }
 
 @media (max-width: 968px) {
@@ -157,15 +166,6 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    animation: cluster-cycle-mobile 12s ease-in-out infinite;
-  }
-
-  @keyframes cluster-cycle-mobile {
-    0%, 100% { transform: scale(1); }
-    10% { transform: scale(0.7); }
-    20% { transform: scale(0.7); }
-    30% { transform: scale(1); }
-    90% { transform: scale(1); }
   }
 
   .gallery-photo {
@@ -175,6 +175,24 @@
     top: auto !important;
     left: auto !important;
     transform: none !important;
+    animation: photo-rotate-mobile 8s ease-in-out infinite;
+  }
+
+  .gallery-photo:nth-child(1) { animation-delay: 0s; }
+  .gallery-photo:nth-child(2) { animation-delay: 1.3s; }
+  .gallery-photo:nth-child(3) { animation-delay: 2.6s; }
+  .gallery-photo:nth-child(4) { animation-delay: 3.9s; }
+  .gallery-photo:nth-child(5) { animation-delay: 5.2s; }
+  .gallery-photo:nth-child(6) { animation-delay: 6.5s; }
+
+  @keyframes photo-rotate-mobile {
+    0%, 10%, 90%, 100% {
+      transform: scale(1) rotate(0deg);
+    }
+    12%, 88% {
+      transform: scale(1.1) rotate(0deg);
+      box-shadow: var(--shadow-hover);
+    }
   }
 
   .gallery-photo:hover {

@@ -31,7 +31,7 @@
 }
 
 .logo-text {
-  color: var(--white);
+  color: var(--primary-maroon);
   text-transform: lowercase;
 }
 
@@ -56,14 +56,14 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--white);
   font-size: 0.9rem;
   text-decoration: none;
   transition: var(--transition-smooth);
 }
 
 .contact-link:hover {
-  color: var(--white);
+  color: var(--light-maroon);
   transform: translateY(-2px);
 }
 
@@ -83,19 +83,20 @@
 
 .copyright {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   margin: 0;
 }
 
 .footer-watermark {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .watermark-link {
   color: var(--light-maroon);
   font-weight: 600;
   text-decoration: none;
+  transition: var(--transition-smooth);
 }
 
 .watermark-link:hover {
