@@ -119,8 +119,40 @@
     font-size: 1.2rem;
   }
 
+   .footer-contact-info {
+     flex-direction: column;
+     gap: 0.8rem;
+   }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .footer-main {
+    gap: 1.25rem;
+  }
+
+  .footer-logo {
+    font-size: 1.1rem;
+  }
+
   .footer-contact-info {
-    flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.6rem;
+  }
+
+  .contact-link {
+    font-size: 0.85rem;
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    padding-top: 1rem;
+    gap: 0.4rem;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
   }
 }

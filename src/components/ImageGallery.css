@@ -201,12 +201,23 @@
 }
 
 @media (max-width: 480px) {
-  .gallery-photo {
-    width: 120px;
-    height: 150px;
+  .gallery-section {
+    padding: 3rem 0;
+  }
+
+  .gallery-wrapper {
+    padding: 2rem 0;
   }
 
   .gallery-cluster {
-    gap: 0.8rem;
+    height: 550px;
+    gap: 0.6rem;
+    padding: 0 0.5rem;
+  }
+
+  .gallery-photo {
+    width: 110px;
+    height: 140px;
+    border-radius: 12px;
   }
 }

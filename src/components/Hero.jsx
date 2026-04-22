@@ -65,13 +65,23 @@ const Hero = () => {
             </p>
 
             <div className="hero-contact-info">
-              <a href="tel:0748063488" className="contact-chip animate-slide-up delay-1">
-                <span className="chip-icon">📱</span>
-                <span>0748 063 488</span>
+              <a href="tel:0748063488" className="contact-item animate-slide-up delay-1">
+                <div className="contact-icon-wrapper">
+                  <span className="contact-icon">📱</span>
+                </div>
+                <div className="contact-details">
+                  <span className="contact-label">Phone</span>
+                  <span className="contact-value">0748 063 488</span>
+                </div>
               </a>
-              <a href="mailto:marygorety2006@gmail.com" className="contact-chip animate-slide-up delay-2">
-                <span className="chip-icon">✉️</span>
-                <span>marygorety2006@gmail.com</span>
+              <a href="mailto:marygorety2006@gmail.com" className="contact-item animate-slide-up delay-2">
+                <div className="contact-icon-wrapper">
+                  <span className="contact-icon">✉️</span>
+                </div>
+                <div className="contact-details">
+                  <span className="contact-label">Email</span>
+                  <span className="contact-value">marygorety2006@gmail.com</span>
+                </div>
               </a>
             </div>
 

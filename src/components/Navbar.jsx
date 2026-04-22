@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import './Navbar.css'
 
 const Navbar = () => {
@@ -23,28 +23,49 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false)
+      }
+    }
 
-  const closeMenu = () => {
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isMenuOpen])
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMenuOpen])
+
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((prev) => !prev)
+  }, [])
+
+  const closeMenu = useCallback(() => {
     setIsMenuOpen(false)
-  }
+  }, [])
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`} aria-label="Main navigation">
       <div className="nav-container">
         <a href="#home" className="nav-logo">
           <span className="logo-text">gorety ogutu</span>
           <span className="logo-heart">♥</span>
         </a>
 
-        <ul className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
+        <ul id="primary-navigation" className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
           {navItems.map((item, index) => (
             <li 
               key={item.href}
               className="nav-item"
-              style={{ animationDelay: `${index * 0.1}s` }}
             >
               <a 
                 href={item.href} 
@@ -62,6 +83,8 @@ const Navbar = () => {
           className={`hamburger ${isMenuOpen ? 'hamburger-open' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
         >
           <span className="hamburger-line"></span>
           <span className="hamburger-line"></span>
